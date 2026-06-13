@@ -1,3 +1,4 @@
+
 body{
 background:linear-gradient(to bottom,#fff8f0,#e6ccb2,#d6b89c);
 text-align:center;
@@ -32,19 +33,27 @@ border:1px solid #ccc;
 }
 
 h1{
-font-size:80px;
+font-size:60px;
 color:brown;
 font-family:cursive;
+margin:20px 0;
 }
 
 h2{
-font-size:55px;
+font-size:40px;
+margin-top:30px;
+}
+
+p{
+font-size:22px;
+line-height:1.6;
 }
 
 .hero{
 width:90%;
 max-width:650px;
-border-radius:10px;
+border-radius:15px;
+box-shadow:0 4px 10px rgba(0,0,0,.2);
 }
 
 .menu-container{
@@ -69,22 +78,31 @@ object-fit:cover;
 border-radius:10px;
 }
 
+.card h3{
+font-size:22px;
+}
+
 button{
 background:#c1121f;
 color:white;
 border:none;
 padding:12px 20px;
-font-size:18px;
+font-size:16px;
 border-radius:8px;
 cursor:pointer;
 }
 
+button:hover{
+background:#9d0208;
+}
+
 .offer-img{
-width:95%;
-max-width:850px;
-height:550px;
+width:80%;
+max-width:500px;
+height:350px;
 object-fit:cover;
-border-radius:10px;
+border-radius:15px;
+box-shadow:0 4px 10px rgba(0,0,0,.2);
 }
 
 footer{
@@ -101,6 +119,7 @@ color:white;
 
 .dark .card{
 background:#222;
+color:white;
 }
 
 #topBtn{
@@ -109,4 +128,32 @@ bottom:20px;
 right:20px;
 display:none;
 border-radius:50%;
+width:55px;
+height:55px;
+font-size:20px;
+}
+
+@media(max-width:768px){
+
+h1{
+font-size:55px;
+}
+
+h2{
+font-size:28px;
+}
+
+p{
+font-size:18px;
+}
+
+.offer-img{
+width:85%;
+height:280px;
+}
+
+.card{
+width:85%;
+}
+
 }
