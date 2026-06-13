@@ -1,51 +1,142 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Coffee Shop</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+body{
+    background:linear-gradient(to bottom,#fff8f0,#e6ccb2,#d6b89c);
+    text-align:center;
+    font-family:Arial,sans-serif;
+    margin:0;
+}
+
+nav{
+    background:brown;
+    padding:15px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+    font-weight:bold;
+}
+
+h1{
+    color:brown;
+}
+
+.tagline{
+    font-size:20px;
+    font-weight:bold;
+}
+
+#searchInput{
+    margin:20px;
+    padding:10px;
+    width:250px;
+}
+
+.menu-container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.card{
+    background:white;
+    width:250px;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+.card img{
+    width:100%;
+    border-radius:10px;
+}
+
+button{
+    background:brown;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#5a2d0c;
+}
+
+.dark{
+    background:#222;
+    color:white;
+}
+
+.dark .card{
+    background:#333;
+    color:white;
+}
+
+footer{
+    background:brown;
+    color:white;
+    padding:15px;
+    margin-top:20px;
+}
+
+#topBtn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    display:none;
+}
+</style>
 </head>
+
 <body>
 
 <nav>
-<a href="#">Home</a>
-<a href="#menu">Menu</a>
-<a href="#contact">Contact</a>
+    <a href="#">Home</a>
+    <a href="#">Menu</a>
+    <a href="#">Contact</a>
 </nav>
 
-<input type="text" id="search" placeholder="🔍 Search Coffee">
+<input type="text" id="searchInput" placeholder="🔍 Search Coffee">
 
 <h1>☕ Coffee Shop</h1>
+<p>Welcome to our Coffee Shop! Enjoy the best coffee in town.</p>
+<p class="tagline">Fresh Coffee Every Day</p>
 
-<p class="tagline">Welcome to our Coffee Shop! Enjoy the best coffee in town. ☕</p>
-
-<h2>Fresh Coffee Every Day</h2>
-
-<img class="hero" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1000">
-
-<section id="menu">
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600"
+width="300">
 
 <h2>Menu</h2>
 
 <div class="menu-container">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500">
+<img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=400">
 <h3>Espresso</h3>
 <p>₹100</p>
 <button onclick="addCart(100)">Add To Cart</button>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500">
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400">
 <h3>Cappuccino</h3>
 <p>₹150</p>
 <button onclick="addCart(150)">Add To Cart</button>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500">
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400">
 <h3>Latte</h3>
 <p>₹180</p>
 <button onclick="addCart(180)">Add To Cart</button>
@@ -53,28 +144,21 @@
 
 </div>
 
-<h3 id="cart">🛒 Cart Total: ₹0</h3>
+<h3>🛒 Cart Total: ₹<span id="total">0</span></h3>
 
-<button>Order Now</button>
-
-</section>
-
-<section>
+<button onclick="orderNow()">Order Now</button>
 
 <h2>About Us</h2>
-
 <p>
 We serve fresh and delicious coffee every day.
 Our goal is to make every customer smile with a perfect cup of coffee.
 </p>
 
-</section>
-
-<section>
-
 <h2>Order Coffee</h2>
 
 <input type="text" placeholder="Enter Your Name">
+
+<br><br>
 
 <select>
 <option>Espresso</option>
@@ -82,158 +166,86 @@ Our goal is to make every customer smile with a perfect cup of coffee.
 <option>Latte</option>
 </select>
 
+<br><br>
+
 <input type="number" placeholder="Quantity">
 
+<br><br>
+
 <button onclick="placeOrder()">Place Order</button>
-
-</section>
-
-<section>
 
 <h2>Special Offer</h2>
 
 <p>🎉 Buy 2 Coffees and Get 1 Free! ☕</p>
 
-<img class="offer-img"
-src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1000">
-
-</section>
-
-<section>
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600"
+width="250">
 
 <h2>Customer Reviews</h2>
 
 <p>⭐⭐⭐⭐⭐ Amazing Coffee!</p>
-<p>⭐⭐⭐⭐⭐ Great Service!</p>
+<p>⭐⭐⭐⭐ Great Service!</p>
 <p>⭐⭐⭐⭐⭐ Best Coffee Shop!</p>
-
-</section>
-
-<section>
 
 <h2>Feedback</h2>
 
 <input type="text" placeholder="Your Name">
 
-<textarea placeholder="Write your feedback"></textarea>
+<br><br>
 
-<button onclick="feedback()">Submit Feedback</button>
+<textarea rows="4" cols="30"
+placeholder="Write your feedback"></textarea>
 
-</section>
+<br><br>
 
-<section>
+<button onclick="submitFeedback()">Submit Feedback</button>
 
 <h2>Opening Hours</h2>
 
-<p>Monday - Friday : 8:00 AM - 9:00 PM</p>
-<p>Saturday : 9:00 AM - 10:00 PM</p>
-<p>Sunday : 10:00 AM - 8:00 PM</p>
-
-</section>
-
-<section>
+<p>Monday - Friday : 8 AM - 9 PM</p>
+<p>Saturday : 9 AM - 10 PM</p>
+<p>Sunday : 10 AM - 8 PM</p>
 
 <h2>Best Seller</h2>
 
 <p>🏆 Cappuccino - ₹150</p>
 
-<p>Our customers' favorite coffee!</p>
-
-</section>
-
-<section id="contact">
-
 <h2>Contact Us</h2>
 
-<p>📞 Phone: 9876543210</p>
-<p>📧 Email: coffeeshop@gmail.com</p>
+<p>📞 9876543210</p>
+<p>📧 coffeeshop@gmail.com</p>
 <p>📍 Chennai, Tamil Nadu</p>
-
-</section>
-
-<section>
 
 <h2>Find Us</h2>
 
-<button onclick="locationMap()">View Location</button>
+<button onclick="viewLocation()">View Location</button>
+
+<br><br>
 
 <button onclick="darkMode()">🌙 Dark Mode</button>
 
-</section>
-
-<button id="topBtn" onclick="topFunction()">↑</button>
-
 <footer>
-
 <p>© 2026 Coffee Shop. All Rights Reserved.</p>
-
 <p>Made with ☕ and ❤️</p>
-
 </footer>
 
-<script src="script.js"></script>
-<script>
+<button id="topBtn">⬆</button>
 
+<script>
 let total = 0;
 
 function addCart(price){
     total += price;
-    document.getElementById("cart").innerHTML =
-    "🛒 Cart Total: ₹" + total;
+    document.getElementById("total").innerText = total;
+}
+
+function orderNow(){
+    alert("☕ Thank you for ordering!");
 }
 
 function placeOrder(){
-    alert("Order Placed Successfully ☕");
+    alert("🎉 Order placed successfully!");
 }
 
-function feedback(){
-    alert("Thank You For Your Feedback ❤️");
-}
-
-function darkMode(){
-    document.body.classList.toggle("dark");
-}
-
-function locationMap(){
-    window.open("https://maps.google.com/?q=Chennai");
-}
-
-window.onscroll = function(){
-
-    if(document.documentElement.scrollTop > 300){
-        document.getElementById("topBtn").style.display = "block";
-    }else{
-        document.getElementById("topBtn").style.display = "none";
-    }
-
-}
-
-function topFunction(){
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-}
-
-document.getElementById("search").addEventListener("keyup", function(){
-
-    let value = this.value.toLowerCase();
-
-    let cards = document.querySelectorAll(".card");
-
-    cards.forEach(card => {
-
-        let text = card.innerText.toLowerCase();
-
-        card.style.display =
-        text.includes(value)
-        ? "block"
-        : "none";
-
-    });
-
-});
-
-</script>
-</body>
-</html>
+function submitFeedback(){
+    alert("❤️ Thank you for your feedback
