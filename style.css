@@ -90,8 +90,8 @@ body > img{
 }
 
 .card img{
-    width:85%;
-    height:150px;
+    width:50%;
+    height:100px;
     object-fit:cover;
     border-radius:10px;
 }
@@ -105,8 +105,8 @@ body > img{
 }
 
 .offer-img{
-    width:120px;
-    height:100px;
+    width:85px;
+    height:50px;
 }
 
 button{
